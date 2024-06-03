@@ -3,20 +3,23 @@ globalTimeout: 150
 testSuiteTimeout: 150
 testSuiteStep: 150
 
-runson: ios
+runson: linux
 
-concurrency: 2
+concurrency: 3
 
 autosplit: true
 
 retryOnFailure: false
 maxRetries: 1
 
+pre:
+  - mvn -Dmaven.repo.local=./.m2 dependency:resolve
+
 appium: true
 framework:
   name: maven/testng
   defaultReports: false
   discoveryType: xmltest
-  flags: ["-Pios-single"]
+  flags: ["-Pios-parallel"]
 
-jobLabel: ['HYP', 'Real Device', 'iOS', 'Single Device']
+jobLabel: ['HYP-RD', 'iOS', 'Multiple Device']

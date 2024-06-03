@@ -12,6 +12,9 @@ autosplit: true
 retryOnFailure: false
 maxRetries: 1
 
+pre:
+  - mvn -Dmaven.repo.local=./.m2 dependency:resolve
+
 appium: true
 framework:
   name: maven/testng
@@ -19,4 +22,4 @@ framework:
   discoveryType: xmltest
   flags: ["-Pandroid-single"]
 
-jobLabel: ['HYP', 'Real Device', 'Android', 'Single Device']
+jobLabel: ['HYP-RD', 'Android', 'Single Device']
