@@ -17,10 +17,10 @@ To know more about how HyperExecute does intelligent Test Orchestration, do chec
 * [Pre-requisites](#pre-requisites)
    - [Download HyperExecute CLI](#download-hyperexecute-cli)
    - [Setup Environment Variables](#setup-environment-variable)
-* [Step 1: Upload your Application](#pre-requisites)
-* [Step 2: Configure your Test](#pre-requisites)
-* [Step 3: Define your YAML file](#pre-requisites)
-* [Step 4: Trigger your Test](#pre-requisites)
+* [Step 1: Upload your Application](#step-1-upload-your-application)
+* [Step 2: Configure your Test](#step-2-configure-your-test)
+* [Step 3: Define your YAML file](#step-3-define-your-yaml-file)
+* [Step 4: Trigger your Test](#step-4-trigger-your-test)
 
 # Pre-requisites
 
