@@ -10,7 +10,7 @@ The overall experience helps teams test code and fix issues at a much faster pac
 
 To know more about how HyperExecute does intelligent Test Orchestration, do check out [HyperExecute Getting Started Guide](https://www.lambdatest.com/support/docs/getting-started-with-hyperexecute/)
 
-[<img alt="Try it now" width="200 px" align="center" src="images/Try it Now.svg" />](https://hyperexecute.lambdatest.com/?utm_source=github&utm_medium=repository&utm_content=java&utm_term=testng)
+[<img alt="Try it now" width="200 px" align="center" src="images/Try it Now.svg" />](https://hyperexecute.lambdatest.com/hyperexecute/jobs)
 
 # Steps to run Real Device Appium tests using HyperExecute
 
@@ -22,7 +22,12 @@ To know more about how HyperExecute does intelligent Test Orchestration, do chec
 
 # Pre-requisites
 
-Before using HyperExecute, you have to download HyperExecute CLI corresponding to the host OS. Along with it, you also need to export the environment variables *LT_USERNAME* and *LT_ACCESS_KEY* that are available in the [LambdaTest Profile](https://accounts.lambdatest.com/detail/profile) page.
+- HyperExecute YAML file which contains all the necessary instructions.
+- HyperExecute CLI to initiate a test execution Job.
+- Your LambdaTest Username and Access Key
+- Setup the Environmental Variable
+- Ensure you have Appium’s Java client library installed.
+- Access to the Android app (.apk or .aab file) or an iOS app (.ipa file).
 
 ## Download HyperExecute CLI
 
@@ -30,33 +35,28 @@ HyperExecute CLI is the CLI for interacting and running the tests on the HyperEx
 
 Also, it is recommended to download the binary in the project's parent directory. Shown below is the location from where you can download the HyperExecute CLI binary:
 
-* Mac: https://downloads.lambdatest.com/hyperexecute/darwin/hyperexecute
-* Linux: https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute
-* Windows: https://downloads.lambdatest.com/hyperexecute/windows/hyperexecute.exe
+| Platform	| HyperExecute CLI download URL |
+|-----------|-------------------------------|
+| Windows | https://downloads.lambdatest.com/hyperexecute/windows/hyperexecute.exe |
+| macOS | https://downloads.lambdatest.com/hyperexecute/darwin/hyperexecute |
+| Linux | https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute |
 
-## Configure Environment Variables
+## Setup Environment Variable
+Export the environment variables *LT_USERNAME* and *LT_ACCESS_KEY* that are available in the [LambdaTest Profile page](https://accounts.lambdatest.com/detail/profile).
+Run the below mentioned commands in the terminal to setup the CLI and the environment variables.
 
-Before the tests are run, please set the environment variables LT_USERNAME & LT_ACCESS_KEY from the terminal. The account details are available on your [LambdaTest Profile](https://accounts.lambdatest.com/detail/profile) page.
-
-For macOS:
-
-```bash
-export LT_USERNAME=LT_USERNAME
-export LT_ACCESS_KEY=LT_ACCESS_KEY
-```
-
-For Linux:
+For Linux / macOS:
 
 ```bash
-export LT_USERNAME=LT_USERNAME
-export LT_ACCESS_KEY=LT_ACCESS_KEY
+export LT_USERNAME=YOUR_LT_USERNAME
+export LT_ACCESS_KEY=YOUR_LT_ACCESS_KEY
 ```
 
 For Windows:
 
 ```bash
-set LT_USERNAME=LT_USERNAME
-set LT_ACCESS_KEY=LT_ACCESS_KEY
+set LT_USERNAME=YOUR_LT_USERNAME
+set LT_ACCESS_KEY=YOUR_LT_ACCESS_KEY
 ```
 
 ## Navigation in Automation Dashboard
