@@ -16,9 +16,11 @@ To know more about how HyperExecute does intelligent Test Orchestration, do chec
 
 * [Pre-requisites](#pre-requisites)
    - [Download HyperExecute CLI](#download-hyperexecute-cli)
-   - [Configure Environment Variables](#configure-environment-variables)
-   
-* [Navigation in Automation Dashboard](#navigation-in-automation-dashboard)
+   - [Setup Environment Variables](#setup-environment-variable)
+* [Step 1: Upload your Application](#pre-requisites)
+* [Step 2: Configure your Test](#pre-requisites)
+* [Step 3: Define your YAML file](#pre-requisites)
+* [Step 4: Trigger your Test](#pre-requisites)
 
 # Pre-requisites
 
@@ -59,17 +61,55 @@ set LT_USERNAME=YOUR_LT_USERNAME
 set LT_ACCESS_KEY=YOUR_LT_ACCESS_KEY
 ```
 
-## Navigation in Automation Dashboard
+## Step 1: Upload your Application
+Upload your Android or iOS application (.apk or .ipa file) to the LambdaTest servers using our REST API. You need to provide your Username and AccessKey in the format Username:AccessKey in the cURL command for authentication.
 
-HyperExecute lets you navigate from/to *Test Logs* in Automation Dashboard from/to *HyperExecute Logs*. You also get relevant get relevant Selenium test details like video, network log, commands, Exceptions & more in the Dashboard. Effortlessly navigate from the automation dashboard to HyperExecute logs (and vice-versa) to get more details of the test execution.
+```bash
+curl -u "USERNAME:ACCESS_KEY" -X POST "https://manual-api.lambdatest.com/app/upload/realDevice" -F "appFile=@"<YOUR_LOCAL_APP_PATH>"" -F "name="sampleApp""
+```
 
-Shown below is the HyperExecute Automation dashboard which also lists the tests that were executed as a part of the test suite:
+## Step 2: Configure your Test
+After running the above cURL command, you will receive an `AppURL` of the format `lt://APP123456789123456789` which you will update in your test scripts. Create a `.xml` file to run your test and define device capabilities.
 
-<img width="1429" alt="testng_hyperexecute_automation_dashboard" src="https://user-images.githubusercontent.com/1688653/160457830-2dd0789b-5f6d-4cb1-9826-910fcddf6986.png">
+## Step 3: Define your YAML file
 
-Here is a screenshot that lists the automation test that was executed on the HyperExecute grid:
+```yaml
+version: 0.2
+globalTimeout: 150
+testSuiteTimeout: 150
+testSuiteStep: 150
 
-<img width="1429" alt="testng_testing_automation_dashboard" src="https://user-images.githubusercontent.com/1688653/159757703-4dfb2778-df76-4a4c-9991-b3ecfc52bf85.png">
+runson: linux
+
+concurrency: 5
+
+autosplit: true
+
+retryOnFailure: false
+maxRetries: 1
+
+pre:
+  - mvn -Dmaven.repo.local=./.m2 dependency:resolve
+
+appium: true
+framework:
+  name: maven/testng
+  defaultReports: false
+  discoveryType: xmltest
+  flags: ["-Pandroid-parallel"]
+
+jobLabel: ['HYP-RD', 'Android', 'Multiple Device']
+```
+
+## Step 4: Trigger your Test
+
+> Note: In the case of MacOS, if you get a permission denied warning while executing CLI, simply run `chmod u+x ./hyperexecute` to allow permission. In case you get a security popup, allow it from your System Preferences → Security & Privacy → General tab.
+
+Run the below command in your terminal at the root folder of the project:
+
+```bash
+./hyperexecute --user <your_username> --key <your_access_key> --config <path_of_yaml_file>
+```
 
 ## LambdaTest Community :busts_in_silhouette:
 
