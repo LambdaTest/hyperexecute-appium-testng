@@ -75,18 +75,10 @@ After running the above cURL command, you will receive an `AppURL` of the format
 
 ```yaml
 version: 0.2
-globalTimeout: 150
-testSuiteTimeout: 150
-testSuiteStep: 150
-
 runson: linux
 
-concurrency: 5
-
 autosplit: true
-
-retryOnFailure: false
-maxRetries: 1
+concurrency: 3
 
 pre:
   - mvn -Dmaven.repo.local=./.m2 dependency:resolve
@@ -96,9 +88,14 @@ framework:
   name: maven/testng
   defaultReports: false
   discoveryType: xmltest
-  flags: ["-Pandroid-parallel"]
+  flags: ["-Pandroid-emulator"]
+  args:
+    isRealMobile: false
 
-jobLabel: ['HYP-RD', 'Android', 'Multiple Device']
+retryOnFailure: true
+maxRetries: 1
+
+jobLabel: ['HYP', 'Appium' 'Android-Emulator']
 ```
 
 ## Step 4: Trigger your Test
