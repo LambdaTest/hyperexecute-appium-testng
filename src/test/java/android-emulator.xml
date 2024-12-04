@@ -2,50 +2,48 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="100" name="Mobile" parallel="tests">
 
-
-    <test name="AndroidAppTest_1">
+    <test name="AndroidEmulatorTest_1">
         <parameter name="version" value="11" />
         <parameter name="platform" value="Android" />
-        <parameter name="device" value="Galaxy S21 Ultra 5G" />
+        <parameter name="device" value="Galaxy Note20 Ultra 5G" />
         <classes>
-            <class name="AndroidApp" />
+            <class name="AndroidEmulator" />
         </classes>
     </test>
 
-    <test name="AndroidAppTest_2">
+    <test name="AndroidEmulatorTest_2">
         <parameter name="version" value="12" />
         <parameter name="platform" value="Android" />
-        <parameter name="device" value="Galaxy S21 Ultra 5G" />
+        <parameter name="device" value="Galaxy S22 5G" />
         <classes>
-            <class name="AndroidApp" />
+            <class name="AndroidEmulator" />
         </classes>
     </test>
 
-    <test name="AndroidAppTest_3">
+        <test name="AndroidEmulatorTest_3">
         <parameter name="version" value="13" />
         <parameter name="platform" value="Android" />
         <parameter name="device" value="Galaxy S21 Ultra 5G" />
         <classes>
-            <class name="AndroidApp" />
+            <class name="AndroidEmulator" />
         </classes>
     </test>
 
-    <test name="AndroidAppTest_4">
-        <parameter name="version" value="14" />
+        <test name="AndroidEmulatorTest_4">
+        <parameter name="version" value="11" />
         <parameter name="platform" value="Android" />
-        <parameter name="device" value="Galaxy S21 Ultra 5G" />
+        <parameter name="device" value="Galaxy S20" />
         <classes>
-            <class name="AndroidApp" />
+            <class name="AndroidEmulator" />
         </classes>
     </test>
 
-    <test name="AndroidAppTest_5">
-        <parameter name="version" value="15" />
+        <test name="AndroidEmulatorTest_5">
+        <parameter name="version" value="12" />
         <parameter name="platform" value="Android" />
-        <parameter name="device" value="Galaxy S21 Ultra 5G" />
+        <parameter name="device" value="Galaxy S21 5G" />
         <classes>
-            <class name="AndroidApp" />
+            <class name="AndroidEmulator" />
         </classes>
     </test>
-
 </suite>
